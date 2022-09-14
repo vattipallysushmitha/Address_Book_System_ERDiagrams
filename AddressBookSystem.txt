@@ -1,5 +1,5 @@
 
-/*purpose==>Ability to edit existing contat person using their name.
+/*purpose==>Ability to delete a person using person's name
 *Author==>Sushmitha
 *Signin==>14-09-2022
 */
@@ -160,6 +160,22 @@ mysql>  select * from addressBook;
 mysql>
 
 
+********
+//UC5
+********
+mysql> DELETE from addressBook where FirstName='Sherya';
+Query OK, 1 row affected (0.01 sec)
+
+mysql>  select * from addressBook;
++-----------+-------------+--------------+----------------+----------+-----------+--------+
+| firstName | lastName    | mobileNumber | email          | city     | state     | zip    |
++-----------+-------------+--------------+----------------+----------+-----------+--------+
+| Akhila    | vengalreddy | 1234567890   | abcd@gmail.com | Kurnool  | Andhra    | 534243 |
+| Sushmitha | Reddy       | 8317503123   | xzy@gmail.com  | Hyderbad | Telangana | 56003  |
++-----------+-------------+--------------+----------------+----------+-----------+--------+
+2 rows in set (0.00 sec)
+
+mysql>
 
 
 
