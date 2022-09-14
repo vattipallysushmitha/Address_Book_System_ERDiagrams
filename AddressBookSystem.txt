@@ -1,5 +1,5 @@
 
-/*purpose==>Ability to delete a person using person's name
+/*purpose==>Ability to Retrieve Person belonging to a City or  State from the Address Book
 *Author==>Sushmitha
 *Signin==>14-09-2022
 */
@@ -175,7 +175,54 @@ mysql>  select * from addressBook;
 +-----------+-------------+--------------+----------------+----------+-----------+--------+
 2 rows in set (0.00 sec)
 
-mysql>
+*******
+//UC6
+*******
+mysql> INSERT INTO addressbook(firstName,lastName,mobileNumber,email,city,state,zip) VALUES
+    -> ('Thasvika','Reddy','9854712563','vengalreddysushmitha@gmail.com','Bangalore','Karnataka',560039);
+Query OK, 1 row affected (0.01 sec)
+
+mysql>  select * from addressBook;
++-----------+-------------+--------------+--------------------------------+-----------+-----------+--------+
+| firstName | lastName    | mobileNumber | email                          | city      | state     | zip    |
++-----------+-------------+--------------+--------------------------------+-----------+-----------+--------+
+| Akhila    | vengalreddy | 1234567890   | abcd@gmail.com                 | Kurnool   | Andhra    | 534243 |
+| Sushmitha | Reddy       | 8317503123   | xzy@gmail.com                  | Hyderbad  | Telangana | 56003  |
+| Thasvika  | Reddy       | 9854712563   | vengalreddysushmitha@gmail.com | Bangalore | Karnataka | 560039 |
++-----------+-------------+--------------+--------------------------------+-----------+-----------+--------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * from addressBook where city = 'Bangalore';
++-----------+----------+--------------+--------------------------------+-----------+-----------+--------+
+| firstName | lastName | mobileNumber | email                          | city      | state     | zip    |
++-----------+----------+--------------+--------------------------------+-----------+-----------+--------+
+| Thasvika  | Reddy    | 9854712563   | vengalreddysushmitha@gmail.com | Bangalore | Karnataka | 560039 |
++-----------+----------+--------------+--------------------------------+-----------+-----------+--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * from addressBook where state = 'Kurnool';
+Empty set (0.00 sec)
+
+mysql>  select * from addressBook;
++-----------+-------------+--------------+--------------------------------+-----------+-----------+--------+
+| firstName | lastName    | mobileNumber | email                          | city      | state     | zip    |
++-----------+-------------+--------------+--------------------------------+-----------+-----------+--------+
+| Akhila    | vengalreddy | 1234567890   | abcd@gmail.com                 | Kurnool   | Andhra    | 534243 |
+| Sushmitha | Reddy       | 8317503123   | xzy@gmail.com                  | Hyderbad  | Telangana | 56003  |
+| Thasvika  | Reddy       | 9854712563   | vengalreddysushmitha@gmail.com | Bangalore | Karnataka | 560039 |
++-----------+-------------+--------------+--------------------------------+-----------+-----------+--------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * from addressBook where state = 'Kurnool';
+Empty set (0.00 sec)
+
+mysql> SELECT * from addressBook where state = 'Andhra';
++-----------+-------------+--------------+----------------+---------+--------+--------+
+| firstName | lastName    | mobileNumber | email          | city    | state  | zip    |
++-----------+-------------+--------------+----------------+---------+--------+--------+
+| Akhila    | vengalreddy | 1234567890   | abcd@gmail.com | Kurnool | Andhra | 534243 |
++-----------+-------------+--------------+----------------+---------+--------+--------+
+1 row in set (0.00 sec)
 
 
 
