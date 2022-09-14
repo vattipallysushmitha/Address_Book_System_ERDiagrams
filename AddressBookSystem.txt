@@ -1,5 +1,5 @@
 
-/*purpose==>Ability to insert new Contacts to Address Book
+/*purpose==>Ability to edit existing contat person using their name.
 *Author==>Sushmitha
 *Signin==>14-09-2022
 */
@@ -82,7 +82,82 @@ mysql> select * from addressBook;
 
 
 
+*****
+//UC4
+*****
 
+
+mysql> UPDATE addressBook set MobileNumber= "8547120325" where FirstName='Sherya';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  select * from addressBook;
++-----------+-------------+--------------+----------------+----------+-----------+--------+
+| firstName | lastName    | mobileNumber | email          | city     | state     | zip    |
++-----------+-------------+--------------+----------------+----------+-----------+--------+
+| Akhila    | vengalreddy | 1234567890   | abcd@gmail.com | Kurnool  | Andhra    | 534243 |
+| Sherya    | Rao         | 8547120325   | rstu@gmail.com | Nellore  | AP        | 364674 |
+| Sushmitha | Reddy       | 8317503123   | xzy@gmail.com  | Hyderbad | Telangana | 56003  |
++-----------+-------------+--------------+----------------+----------+-----------+--------+
+3 rows in set (0.00 sec)
+
+mysql>  UPDATE addressBook set Zip= "100000" where FirstName='Shreya';
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql>  select * from addressBook;
++-----------+-------------+--------------+----------------+----------+-----------+--------+
+| firstName | lastName    | mobileNumber | email          | city     | state     | zip    |
++-----------+-------------+--------------+----------------+----------+-----------+--------+
+| Akhila    | vengalreddy | 1234567890   | abcd@gmail.com | Kurnool  | Andhra    | 534243 |
+| Sherya    | Rao         | 8547120325   | rstu@gmail.com | Nellore  | AP        | 364674 |
+| Sushmitha | Reddy       | 8317503123   | xzy@gmail.com  | Hyderbad | Telangana | 56003  |
++-----------+-------------+--------------+----------------+----------+-----------+--------+
+3 rows in set (0.00 sec)
+
+mysql>  UPDATE addressBook set Zip= "100000" where FirstName='Sherya';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  select * from addressBook;
++-----------+-------------+--------------+----------------+----------+-----------+--------+
+| firstName | lastName    | mobileNumber | email          | city     | state     | zip    |
++-----------+-------------+--------------+----------------+----------+-----------+--------+
+| Akhila    | vengalreddy | 1234567890   | abcd@gmail.com | Kurnool  | Andhra    | 534243 |
+| Sherya    | Rao         | 8547120325   | rstu@gmail.com | Nellore  | AP        | 100000 |
+| Sushmitha | Reddy       | 8317503123   | xzy@gmail.com  | Hyderbad | Telangana | 56003  |
++-----------+-------------+--------------+----------------+----------+-----------+--------+
+3 rows in set (0.00 sec)
+
+mysql> UPDATE addressBook set State= 'Maharastra' where FirstName='Sherya';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  select * from addressBook;
++-----------+-------------+--------------+----------------+----------+------------+--------+
+| firstName | lastName    | mobileNumber | email          | city     | state      | zip    |
++-----------+-------------+--------------+----------------+----------+------------+--------+
+| Akhila    | vengalreddy | 1234567890   | abcd@gmail.com | Kurnool  | Andhra     | 534243 |
+| Sherya    | Rao         | 8547120325   | rstu@gmail.com | Nellore  | Maharastra | 100000 |
+| Sushmitha | Reddy       | 8317503123   | xzy@gmail.com  | Hyderbad | Telangana  | 56003  |
++-----------+-------------+--------------+----------------+----------+------------+--------+
+3 rows in set (0.00 sec)
+
+mysql> UPDATE addressBook set City= 'Delhi' where FirstName='Sherya';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  select * from addressBook;
++-----------+-------------+--------------+----------------+----------+------------+--------+
+| firstName | lastName    | mobileNumber | email          | city     | state      | zip    |
++-----------+-------------+--------------+----------------+----------+------------+--------+
+| Akhila    | vengalreddy | 1234567890   | abcd@gmail.com | Kurnool  | Andhra     | 534243 |
+| Sherya    | Rao         | 8547120325   | rstu@gmail.com | Delhi    | Maharastra | 100000 |
+| Sushmitha | Reddy       | 8317503123   | xzy@gmail.com  | Hyderbad | Telangana  | 56003  |
++-----------+-------------+--------------+----------------+----------+------------+--------+
+3 rows in set (0.00 sec)
+
+mysql>
 
 
 
