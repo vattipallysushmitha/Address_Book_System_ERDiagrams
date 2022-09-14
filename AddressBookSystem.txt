@@ -1,5 +1,5 @@
 
-/*purpose==>Ability to create a Address Book Table with first and last names, address, city,state, zip, phone number and email as its attributes
+/*purpose==>Ability to insert new Contacts to Address Book
 *Author==>Sushmitha
 *Signin==>14-09-2022
 */
@@ -58,4 +58,40 @@ mysql> desc addressbook;
 7 rows in set (0.00 sec)
 
 mysql>
+
+******
+//UC3
+******
+
+mysql> INSERT INTO addressbook(firstName,lastName,mobileNumber,email,city,state,zip) VALUES
+    -> ('Sushmitha','Reddy','8317503123','xzy@gmail.com','Hyderbad','Telangana',56003),
+    -> ('Akhila','vengalreddy','1234567890','abcd@gmail.com','Kurnool','Andhra',534243),
+    -> ('Sherya','Rao','76436427474','rstu@gmail.com','Nellore','AP',364674);
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from addressBook;
++-----------+-------------+--------------+----------------+----------+-----------+--------+
+| firstName | lastName    | mobileNumber | email          | city     | state     | zip    |
++-----------+-------------+--------------+----------------+----------+-----------+--------+
+| Akhila    | vengalreddy | 1234567890   | abcd@gmail.com | Kurnool  | Andhra    | 534243 |
+| Sherya    | Rao         | 76436427474  | rstu@gmail.com | Nellore  | AP        | 364674 |
+| Sushmitha | Reddy       | 8317503123   | xzy@gmail.com  | Hyderbad | Telangana | 56003  |
++-----------+-------------+--------------+----------------+----------+-----------+--------+
+3 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
