@@ -1,0 +1,35 @@
+
+/*purpose==>Ability to create a Address Book Service DB
+*	  - Use SQL Client to create DB
+*Author==>Sushmitha
+*Signin==>14-09-2022
+*/
+
+********
+//UC1
+********
+mysql> create database Address_Book_Service;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++----------------------+
+| Database             |
++----------------------+
+| address_book_service |
+| information_schema   |
+| mysql                |
+| payroll_service      |
+| payroll_services     |
+| payroll_services1    |
+| payroll_services2    |
+| performance_schema   |
+| sakila               |
+| sys                  |
+| world                |
++----------------------+
+11 rows in set (0.00 sec)
+
+mysql> USE Address_Book_Service;
+Database changed
+mysql>
+
