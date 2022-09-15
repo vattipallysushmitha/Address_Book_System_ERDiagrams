@@ -1,5 +1,5 @@
 
-/*purpose==>Ability to retrieve entries sorted alphabetically by Person’s name for a given city
+/*purpose==>Ability to identify each Address Book with name and Type.
 *Author==>Sushmitha
 *Signin==>15-09-2022
 */
@@ -317,4 +317,62 @@ mysql> SELECT firstName,lastname FROM addressBook ORDER BY city ASC;
 | Sushmitha | Reddy       |
 +-----------+-------------+
 3 rows in set (0.01 sec)
+
+**************************************************************
+#uc9 Ability to identify each Address Book with name and Type.
+**************************************************************
+
+mysql>  alter table addressBook add type varchar(15) after lastName ;
+Query OK, 0 rows affected (0.34 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc addressBook;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| firstName    | varchar(50) | NO   | PRI | NULL    |       |
+| lastName     | varchar(50) | NO   |     | NULL    |       |
+| type         | varchar(15) | YES  |     | NULL    |       |
+| mobileNumber | varchar(20) | NO   |     | NULL    |       |
+| email        | varchar(50) | NO   |     | NULL    |       |
+| city         | varchar(50) | NO   |     | NULL    |       |
+| state        | varchar(50) | NO   |     | NULL    |       |
+| zip          | mediumtext  | NO   |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> update addressBook set type = 'Family' where firstName = 'Sushmitha';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update addressBook set type = 'Profession' where firstName='Thasvika';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  update addressBook set type = 'Friend' where firstName = 'Akhila';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from addressBook;
++-----------+-------------+------------+--------------+--------------------------------+-----------+-----------+--------+
+| firstName | lastName    | type       | mobileNumber | email                          | city      | state     | zip    |
++-----------+-------------+------------+--------------+--------------------------------+-----------+-----------+--------+
+| Akhila    | vengalreddy | Friend     | 1234567890   | abcd@gmail.com                 | Kurnool   | Andhra    | 534243 |
+| Sushmitha | Reddy       | Family     | 8317503123   | xzy@gmail.com                  | Kurnool   | Telangana | 56003  |
+| Thasvika  | Reddy       | Profession | 9854712563   | vengalreddysushmitha@gmail.com | Bangalore | Karnataka | 560039 |
++-----------+-------------+------------+--------------+--------------------------------+-----------+-----------+--------+
+3 rows in set (0.00 sec)
+
+mysql>
+
+
+
+
+
+
+
+
+
+
+
 
