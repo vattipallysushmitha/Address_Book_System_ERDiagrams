@@ -1,5 +1,5 @@
 
-/*purpose==>Ability to understand the size of address book by City and State
+/*purpose==>Ability to retrieve entries sorted alphabetically by Person’s name for a given city
 *Author==>Sushmitha
 *Signin==>15-09-2022
 */
@@ -259,8 +259,62 @@ mysql> SELECT state,COUNT(state) as count from addressBook group by state;
 
 mysql>
 
+******
+//UC8
+******
 
 
 
+mysql> SELECT * FROM addressBook ORDER BY firstName;
++-----------+-------------+--------------+--------------------------------+-----------+-----------+--------+
+| firstName | lastName    | mobileNumber | email                          | city      | state     | zip    |
++-----------+-------------+--------------+--------------------------------+-----------+-----------+--------+
+| Akhila    | vengalreddy | 1234567890   | abcd@gmail.com                 | Kurnool   | Andhra    | 534243 |
+| Sushmitha | Reddy       | 8317503123   | xzy@gmail.com                  | Kurnool   | Telangana | 56003  |
+| Thasvika  | Reddy       | 9854712563   | vengalreddysushmitha@gmail.com | Bangalore | Karnataka | 560039 |
++-----------+-------------+--------------+--------------------------------+-----------+-----------+--------+
+3 rows in set (0.00 sec)
 
+mysql> SELECT * FROM addressBook ORDER BY city;
++-----------+-------------+--------------+--------------------------------+-----------+-----------+--------+
+| firstName | lastName    | mobileNumber | email                          | city      | state     | zip    |
++-----------+-------------+--------------+--------------------------------+-----------+-----------+--------+
+| Thasvika  | Reddy       | 9854712563   | vengalreddysushmitha@gmail.com | Bangalore | Karnataka | 560039 |
+| Akhila    | vengalreddy | 1234567890   | abcd@gmail.com                 | Kurnool   | Andhra    | 534243 |
+| Sushmitha | Reddy       | 8317503123   | xzy@gmail.com                  | Kurnool   | Telangana | 56003  |
++-----------+-------------+--------------+--------------------------------+-----------+-----------+--------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT id,firstName,lastname FROM addressBook ORDER BY city;
+ERROR 1054 (42S22): Unknown column 'id' in 'field list'
+mysql> SELECT firstName,lastname FROM addressBook ORDER BY city;
++-----------+-------------+
+| firstName | lastname    |
++-----------+-------------+
+| Thasvika  | Reddy       |
+| Akhila    | vengalreddy |
+| Sushmitha | Reddy       |
++-----------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT firstName,lastname FROM addressBook ORDER BY city DESC;
++-----------+-------------+
+| firstName | lastname    |
++-----------+-------------+
+| Akhila    | vengalreddy |
+| Sushmitha | Reddy       |
+| Thasvika  | Reddy       |
++-----------+-------------+
+3 rows in set (0.00 sec)
+
+
+mysql> SELECT firstName,lastname FROM addressBook ORDER BY city ASC;
++-----------+-------------+
+| firstName | lastname    |
++-----------+-------------+
+| Thasvika  | Reddy       |
+| Akhila    | vengalreddy |
+| Sushmitha | Reddy       |
++-----------+-------------+
+3 rows in set (0.01 sec)
 
