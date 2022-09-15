@@ -1,5 +1,5 @@
 
-/*purpose==>Ability to get number of contact persons i.e. count by type.
+/*purpose==>Ability to add person to both Friend and Family.
 *Author==>Sushmitha
 *Signin==>15-09-2022
 */
@@ -389,6 +389,36 @@ mysql> select type, Count(type) from addressBook group by type;
 3 rows in set (0.00 sec)
 
 
+
+********
+//UC11
+********
+
+
+mysql> INSERT INTO addressbook(firstName,lastName,type,mobileNumber,email,city,state,zip) VALUES
+    -> ('Madhu','Rao','Friend','9856321478','abcdef@yahoo.com','kolkatha','Andhra',587969);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO addressbook(firstName,lastName,type,mobileNumber,email,city,state,zip) VALUES
+    -> ('Ramesh','vatttipally','Friend','9856321478','sushi@yahoo.com','Nalgonda','Telangana',587969);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO addressbook(firstName,lastName,type,mobileNumber,email,city,state,zip) VALUES
+    -> ('divakar','naidyu','Friend','84781256789','ramesh@yahoo.com','Hanmakonda','Telangana',586854);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from addressBook;
++-----------+-------------+------------+--------------+--------------------------------+------------+-----------+--------+
+| firstName | lastName    | type       | mobileNumber | email                          | city       | state     | zip    |
++-----------+-------------+------------+--------------+--------------------------------+------------+-----------+--------+
+| Akhila    | vengalreddy | Friend     | 1234567890   | abcd@gmail.com                 | Kurnool    | Andhra    | 534243 |
+| divakar   | naidyu      | Friend     | 84781256789  | ramesh@yahoo.com               | Hanmakonda | Telangana | 586854 |
+| Madhu     | Rao         | Friend     | 9856321478   | abcdef@yahoo.com               | kolkatha   | Andhra    | 587969 |
+| Ramesh    | vatttipally | Friend     | 9856321478   | sushi@yahoo.com                | Nalgonda   | Telangana | 587969 |
+| Sushmitha | Reddy       | Family     | 8317503123   | xzy@gmail.com                  | Kurnool    | Telangana | 56003  |
+| Thasvika  | Reddy       | Profession | 9854712563   | vengalreddysushmitha@gmail.com | Bangalore  | Karnataka | 560039 |
++-----------+-------------+------------+--------------+--------------------------------+------------+-----------+--------+
+6 rows in set (0.00 sec)
 
 
 
